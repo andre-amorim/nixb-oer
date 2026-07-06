@@ -1,0 +1,172 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>🏗️ nixB — A Didactic Laboratory for Software Reproducibility</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="nixb-reproducible-environments"
+                  title="🏗️ nixB — A Didactic Laboratory for Software Reproducibility"
+                  environment="web"
+                  feedback-link="https://github.com/andre-amorim/ou_tm470/issues">
+    
+      <google-codelab-step label="Step 1 — Overview" duration="5">
+        <p>Welcome to the nixB Codelab! In this interactive lab, we will explore the foundational problems of software reproducibility. We won&#39;t start by learning a tool; instead, we will start by experiencing the <em>reason</em> tools like Nix were built in the first place.</p>
+<h2 class="checklist" is-upgraded>What you&#39;ll learn</h2>
+<ul class="checklist">
+<li>The difference between application-level dependency management and system-level reproducibility.</li>
+<li>Why modern infrastructure suffers from configuration drift (&#34;The Jenga Tower&#34;).</li>
+<li>How Nix solves these problems using pure functions (&#34;The Blueprint&#34;).</li>
+<li>How to write your first <code>flake.nix</code> to guarantee a reproducible environment.</li>
+</ul>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A terminal environment</li>
+<li>Basic understanding of command-line tools</li>
+</ul>
+<p>Let&#39;s dive in!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 2 — The Failure: Try This At Home" duration="15">
+        <p><strong>The Hook:</strong> Let&#39;s experience a classic failure. Imagine you&#39;re working on a Python project that requires a specific C library to compile securely.</p>
+<p>If you try to install the package using standard tools:</p>
+<pre><code language="language-bash" class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p>You might encounter this real-world error:</p>
+<pre><code>ERROR: Could not build wheels for secp256k1 [...] fatal error: &#39;secp256k1.h&#39; file not found
+</code></pre>
+<p>Why did this happen? You have the exact same <code>requirements.txt</code> and the same Python version as your teammate, but it failed on your ARM64 machine! The reason is that <code>pip</code> cannot manage system-level dependencies like C headers (<code>secp256k1.h</code>).</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 3 — The Diagnosis: Why Did It Break?" duration="15">
+        <p>Application-level package managers (<code>pip</code>, <code>npm</code>, <code>cargo</code>) only manage their specific ecosystems. They assume the underlying operating system provides the necessary libraries and compilers.</p>
+<h2 is-upgraded>The &#34;Jenga Tower&#34; Mental Model</h2>
+<p>When we use <code>sudo apt install</code> or <code>brew install</code>, we mutate the global state of our operating system. Every command changes the machine in ways that aren&#39;t tracked or easily reversible. Over time, machines diverge, creating configuration drift.</p>
+<p><em>(See our diagram: </em></p>
+<p><em><code>reproducibility_gap_v1.0.mmd</code></em></p>
+<p><em>)</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 4 — The Reproducibility Gap" duration="10">
+        <p>This gap between &#34;code works&#34; and &#34;system works&#34; has real-world consequences, from security vulnerabilities to the deprecation of Cloud IDEs.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Technology</p>
+</td><td colspan="1" rowspan="1"><p>Reproducibility Level</p>
+</td><td colspan="1" rowspan="1"><p>System Isolation</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Virtualenv</p>
+</td><td colspan="1" rowspan="1"><p>Partial (Python only)</p>
+</td><td colspan="1" rowspan="1"><p>None</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Docker</p>
+</td><td colspan="1" rowspan="1"><p>High (Image state)</p>
+</td><td colspan="1" rowspan="1"><p>High (Container)</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Nix Flakes</p>
+</td><td colspan="1" rowspan="1"><p>Complete (Blueprint)</p>
+</td><td colspan="1" rowspan="1"><p>Perfect</p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 5 — The Solution: What is Nix?" duration="10">
+        <p>Nix is a &#34;pure function&#34; package manager. It treats packages like functions: given the exact same inputs (source code, compiler version, dependencies), it always produces the exact same output.</p>
+<p>Key principles:</p>
+<ul>
+<li>Deterministic builds</li>
+<li>Complete isolation</li>
+<li>Atomic upgrades and rollbacks</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 6 — Nix Flakes: The Blueprint File" duration="15">
+        <p>A <code>flake.nix</code> file is the blueprint of our environment. It explicitly declares inputs, outputs, and <code>devShells</code>. The associated <code>flake.lock</code> file pins the exact git hashes of every dependency, guaranteeing reproducibility.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 7 — The Fix: Solving the Build Failure with Nix" duration="20">
+        <p>Let&#39;s return to our failure from Step 2. We can fix it by wrapping the environment in a <code>flake.nix</code> that declares the system-level C library dependency.</p>
+<pre><code language="language-nix" class="language-nix">buildInputs = [
+  pkgs.secp256k1
+];
+</code></pre>
+<p>By running <code>nix develop</code>, Nix ensures <code>secp256k1</code> is available in our path <em>before</em> the shell starts. Our build now succeeds. Same code, different approach!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 8 — Infrastructure as Code with Nix" duration="15">
+        <p>Because Nix can manage everything from a C compiler to an entire operating system, it is the ultimate Infrastructure as Code (IaC) tool. Compare this to tools like Ansible, which rely on the unstable state of the target machine.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 9 — Practical: The Lightning Network Lab" duration="25">
+        <p>Using our <code>flake.nix</code> approach, we can orchestrate complex software like Bitcoin Core and Core Lightning. With a single command, you can spin up a reproducible, self-contained Lightning network node in regtest mode.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 10 — Security Through Reproducibility" duration="10">
+        <p>Reproducible builds ensure that the binary you are running exactly matches the source code. This eliminates an entire class of supply chain attacks, which is critical for financial software like Bitcoin.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 11 — The Complete Workflow" duration="15">
+        <p>Combining Git and Nix Flakes gives us a complete &#34;time-machine&#34;. You can check out a commit from 3 years ago, run <code>nix develop</code>, and get the exact environment from that day. We also manage this project using ScrumMD!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 12 — Critical Reflection &amp; Portfolio" duration="30">
+        <p>Take a moment to reflect on the difference between imperative dependency management and declarative blueprints. Please prepare your portfolio submission detailing your findings.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step 13 — Congratulations!" duration="2">
+        <p>You&#39;ve completed the nixB Codelab! You&#39;ve learned why reproducibility matters, how Nix solves the problem, and how to apply it. Next up: Explore NixOS or Home Manager!</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

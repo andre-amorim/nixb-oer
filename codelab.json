@@ -1,0 +1,34 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2026-07-06T07:28:16+01:00",
+  "id": "nixb-reproducible-environments",
+  "duration": 187,
+  "title": "🏗️ nixB — A Didactic Laboratory for Software Reproducibility",
+  "authors": "Andre Amorim",
+  "summary": "From build failures to reproducible environments — learn why Nix was built, through a real-world case study.",
+  "source": "nixb-codelab.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "nix",
+    "reproducibility",
+    "infrastructure"
+  ],
+  "tags": [
+    "bitcoin",
+    "flakes",
+    "iac",
+    "lightning",
+    "nix",
+    "oer",
+    "secp256k1",
+    "web"
+  ],
+  "feedback": "https://github.com/andre-amorim/ou_tm470/issues",
+  "url": "nixb-reproducible-environments"
+}
