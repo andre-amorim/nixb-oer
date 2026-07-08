@@ -66,7 +66,7 @@
       </google-codelab-step>
     
       <google-codelab-step label="Step 3 — The Diagnosis: Why Did It Break?" duration="15">
-        <p>Application-level package managers (<code>pip</code>, <code>npm</code>, <code>cargo</code>) only manage their specific ecosystems. They assume the underlying operating system provides the necessary libraries and compilers.</p>
+        <p>Application-level package managers (like <code>pip</code>, <code>uv</code>, <code>poetry</code>, <code>npm</code>, or <code>cargo</code>) only manage their specific language ecosystems. They assume the underlying operating system provides the necessary libraries and compilers.</p>
 <h2 is-upgraded>The &#34;Jenga Tower&#34; Mental Model</h2>
 <p>When we use <code>sudo apt install</code> or <code>brew install</code>, we mutate the global state of our operating system. Every command changes the machine in ways that aren&#39;t tracked or easily reversible. Over time, machines diverge, creating configuration drift.</p>
 <p><em>(See our diagram: </em></p>
