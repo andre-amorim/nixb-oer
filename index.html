@@ -50,14 +50,17 @@
     
       <google-codelab-step label="Step 2 — The Failure: Experiencing the Gap" duration="15">
         <p><strong>The Hook:</strong> Let&#39;s experience a classic failure. Imagine you&#39;re working on a Python project that requires a specific C library (<code>libsecp256k1</code>) to compile securely.</p>
-<p>If you have Nix installed, we can simulate this environment failure <em>without</em> polluting your host system or needing to pre-install Python and pip.</p>
+<p>If you have Nix installed, we can simulate this environment failure <em>without</em> polluting your host system or needing to pre-install Python/pip:</p>
 <p>Run this command in your terminal:</p>
-<pre><code language="language-bash" class="language-bash">nix shell nixpkgs#python3 nixpkgs#python3Packages.pip --command pip install secp256k1
+<pre><code language="language-bash" class="language-bash">nix shell nixpkgs#uv --command uv run --no-binary --with secp256k1 python -c &#34;import secp256k1&#34;
 </code></pre>
-<p>Nix will dynamically spin up a clean shell with Python and <code>pip</code> available, and <code>pip</code> will attempt to install <code>secp256k1</code>. You will immediately encounter this compilation build failure:</p>
-<pre><code>ERROR: Could not build wheels for secp256k1 [...] fatal error: &#39;secp256k1.h&#39; file not found
+<p>Nix will dynamically fetch the <code>uv</code> toolchain, which automatically sets up a clean, isolated Python environment. The <code>--no-binary</code> flag forces <code>uv</code> to compile <code>secp256k1</code> from source instead of downloading pre-compiled binaries. You will immediately encounter a build failure:</p>
+<pre><code>× Failed to build `secp256k1`
+├─▶ The build backend returned an error
+...
+&#39;pkg-config&#39; is required to install this package (or &#39;secp256k1.h&#39; file not found)
 </code></pre>
-<p>Why did this happen? Nix successfully provided a clean Python interpreter and <code>pip</code> dynamically, but because we did <em>not</em> declare the C library dependencies in our shell, <code>pip</code> has no access to the system-level C headers (<code>secp256k1.h</code>) needed to compile the C-extension. This illustrates that language-level package managers cannot resolve system-level dependencies.</p>
+<p>Why did this happen? Nix successfully provided a clean Python interpreter and <code>uv</code> dynamically, but because we did <em>not</em> declare the C library dependencies (<code>pkg-config</code>, <code>secp256k1</code> development headers) in our environment shell, <code>uv</code> has no access to the system-level components needed to compile the C-extension. This illustrates that language-level package managers cannot resolve system-level dependencies.</p>
 
 
       </google-codelab-step>
