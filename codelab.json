@@ -1,15 +1,15 @@
 {
   "environment": "web",
-  "format": "html",
+  "format": "/home/aa/ou_tm470/oer/template.html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2026-07-08T18:31:29+01:00",
+  "updated": "2026-09-14T18:32:02+01:00",
   "id": "nixb-reproducible-environments",
-  "duration": 187,
+  "duration": 177,
   "title": "🏗️ nixB — A Didactic Laboratory for Software Reproducibility",
   "authors": "Andre Amorim",
   "summary": "From build failures to reproducible environments — learn why Nix was built, through a real-world case study.",
-  "source": "nixb-codelab.md",
+  "source": "/home/aa/ou_tm470/oer/nixb-codelab.md",
   "theme": "",
   "status": [
     "draft"

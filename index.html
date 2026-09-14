@@ -1,6 +1,5 @@
 
 <!doctype html>
-
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
@@ -17,6 +16,314 @@
     .error {
       color: red;
     }
+
+     
+    .snippet-wrapper {
+      position: relative;
+      margin: 20px 0;
+      background: #f8f9fa !important;
+      border: 1px solid #dadce0 !important;
+      border-radius: 8px !important;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .snippet-wrapper:hover {
+      border-color: #bdc1c6 !important;
+      box-shadow: 0 2px 6px rgba(60,64,67,0.15);
+    }
+    google-codelab-step pre,
+    .snippet-wrapper pre {
+      margin: 0 !important;
+      padding: 18px 56px 18px 20px !important;
+      background-color: #f8f9fa !important;
+      border: none !important;
+      border-radius: 0 !important;
+      font-family: 'Roboto Mono', 'Source Code Pro', Menlo, Monaco, Consolas, monospace !important;
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      overflow-x: auto !important;
+      white-space: pre !important;
+      word-wrap: normal !important;
+      word-break: normal !important;
+      color: #202124 !important;
+    }
+    google-codelab-step pre code,
+    .snippet-wrapper pre code {
+      background: transparent !important;
+      padding: 0 !important;
+      color: #202124 !important;
+      font-family: inherit !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
+      white-space: pre !important;
+      word-wrap: normal !important;
+    }
+     
+    google-codelab-step pre .str, google-codelab-step code .str { color: #188038 !important; }
+    google-codelab-step pre .kwd, google-codelab-step code .kwd { color: #1967d2 !important; font-weight: 500; }
+    google-codelab-step pre .com, google-codelab-step code .com { color: #80868b !important; font-style: italic; }
+    google-codelab-step pre .typ, google-codelab-step code .typ { color: #9334e6 !important; }
+    google-codelab-step pre .lit, google-codelab-step code .lit { color: #c5221f !important; }
+    google-codelab-step pre .pun, google-codelab-step code .pun { color: #202124 !important; }
+    google-codelab-step pre .pln, google-codelab-step code .pln { color: #202124 !important; }
+    google-codelab-step pre .tag, google-codelab-step code .tag { color: #1967d2 !important; }
+    google-codelab-step pre .atn, google-codelab-step code .atn { color: #b80672 !important; }
+    google-codelab-step pre .atv, google-codelab-step code .atv { color: #188038 !important; }
+    google-codelab-step pre .dec, google-codelab-step code .dec { color: #c5221f !important; }
+    .devsite-code-buttons-container {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 10;
+    }
+    .devsite-code-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #5f6368;
+      transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+      outline: none;
+      position: relative;
+    }
+    .devsite-code-button:hover {
+      background-color: rgba(32, 33, 36, 0.06);
+      color: #202124;
+    }
+    .devsite-code-button:active {
+      background-color: rgba(32, 33, 36, 0.12);
+      transform: scale(0.95);
+    }
+    .devsite-code-button .material-icons {
+      font-size: 20px;
+      user-select: none;
+      pointer-events: none;
+    }
+     
+    .devsite-code-button::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -28px;
+      right: 50%;
+      transform: translateX(50%);
+      background: #3c4043;
+      color: #ffffff;
+      font-family: 'Roboto', 'Google Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 20;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .devsite-code-button:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(50%) translateY(2px);
+    }
+    .devsite-code-button.copied {
+      color: #1e8e3e !important;
+      background-color: #e6f4ea !important;
+    }
+    .devsite-code-button.copied::after {
+      content: "Copied!";
+      background: #1e8e3e;
+      opacity: 1;
+      visibility: visible;
+    }
+
+     
+    google-codelab-survey {
+      background: #ffffff !important;
+      border: 1px solid #dadce0 !important;
+      border-left: 5px solid #1a73e8 !important;
+      border-radius: 8px !important;
+      padding: 20px 24px !important;
+      margin: 24px 0 !important;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.12) !important;
+      transition: box-shadow 0.2s ease !important;
+    }
+    google-codelab-survey:hover {
+      box-shadow: 0 4px 8px rgba(60,64,67,0.18) !important;
+    }
+    google-codelab-survey h4 {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #202124 !important;
+      padding-top: 0 !important;
+      margin-bottom: 12px !important;
+    }
+    .survey-question-wrapper {
+      padding: 0 0 12px 0 !important;
+    }
+    .survey-option-wrapper {
+      display: flex !important;
+      align-items: center !important;
+      padding: 10px 14px !important;
+      margin-bottom: 8px !important;
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 6px !important;
+      background: #fafafa !important;
+      transition: all 0.15s ease-in-out !important;
+      cursor: pointer !important;
+    }
+    .survey-option-wrapper:hover {
+      background: #f1f3f4 !important;
+      border-color: #1a73e8 !important;
+    }
+    .survey-option-wrapper input:checked ~ .option-text {
+      color: #1a73e8 !important;
+      font-weight: 500 !important;
+    }
+    .survey-option-wrapper.selected {
+      background: #e8f0fe !important;
+      border-color: #1a73e8 !important;
+    }
+    .custom-radio-button {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 18px !important;
+      min-width: 18px !important;
+      max-width: 18px !important;
+      height: 18px !important;
+      min-height: 18px !important;
+      max-height: 18px !important;
+      flex-shrink: 0 !important;
+      margin-right: 12px !important;
+      border: 2px solid #5f6368 !important;
+      border-radius: 50% !important;
+      box-sizing: border-box !important;
+      display: inline-block !important;
+      background-color: #ffffff !important;
+      transition: border-color 0.15s ease, background-color 0.15s ease !important;
+    }
+    .survey-option-wrapper input:checked ~ .custom-radio-button {
+      border-color: #1a73e8 !important;
+      background-color: #ffffff !important;
+    }
+    .survey-option-wrapper .custom-radio-button:after {
+      content: "" !important;
+      position: absolute !important;
+      top: 3px !important;
+      left: 3px !important;
+      width: 8px !important;
+      height: 8px !important;
+      border-radius: 50% !important;
+      background: #1a73e8 !important;
+      display: none !important;
+    }
+    .survey-option-wrapper input:checked ~ .custom-radio-button:after {
+      display: block !important;
+    }
+    .survey-option-wrapper .option-text {
+      font-size: 14px !important;
+      line-height: 1.5 !important;
+      padding-left: 0 !important;
+      color: #3c4043 !important;
+      flex-grow: 1 !important;
+    }
+    .nixb-quiz-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .nixb-quiz-buttons-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nixb-check-btn {
+      background: #1a73e8;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(60,64,67,0.3);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .nixb-check-btn:hover {
+      background: #1557b0;
+      box-shadow: 0 2px 4px rgba(60,64,67,0.35);
+    }
+    .nixb-reset-btn {
+      background: #ffffff;
+      color: #5f6368;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .nixb-reset-btn:hover {
+      background-color: #f1f3f4;
+      border-color: #c6c6c6;
+      color: #202124;
+    }
+    .nixb-quiz-feedback {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .nixb-quiz-feedback.correct {
+      display: block;
+      background: #e6f4ea;
+      color: #137333;
+      border: 1px solid #ceead6;
+      border-left: 4px solid #1e8e3e;
+    }
+    .nixb-quiz-feedback.incorrect {
+      display: block;
+      background: #fce8e6;
+      color: #c5221f;
+      border: 1px solid #fad2cf;
+      border-left: 4px solid #d93025;
+    }
+    google-codelab-step img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(60,64,67,0.15);
+    }
+    google-codelab-step em {
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: #5f6368;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
@@ -26,7 +333,8 @@
                   id="nixb-reproducible-environments"
                   title="🏗️ nixB — A Didactic Laboratory for Software Reproducibility"
                   environment="web"
-                  feedback-link="https://github.com/andre-amorim/ou_tm470/issues">
+                  feedback-link="https://github.com/andre-amorim/ou_tm470/issues"
+                  home-url="https://nixb.org">
     
       <google-codelab-step label="Step 1 — Overview" duration="5">
         <p>Welcome to the nixB Codelab! In this interactive lab, we will explore the foundational problems of software reproducibility. We won&#39;t start by learning a tool; instead, we will start by experiencing the <em>reason</em> tools like Nix were built in the first place.</p>
@@ -37,12 +345,31 @@
 <li>How Nix solves these problems using pure functions (&#34;The Blueprint&#34;).</li>
 <li>How to write your first <code>flake.nix</code> to guarantee a reproducible environment.</li>
 </ul>
-<h2 is-upgraded>Prerequisites</h2>
-<ul>
-<li><a href="https://nixos.org/download/" target="_blank">Nix Package Manager</a> installed on your machine (Linux, macOS, or WSL2 on Windows)</li>
-<li>A terminal environment</li>
-<li>Basic understanding of command-line tools</li>
-</ul>
+<h2 is-upgraded>Prerequisites &amp; Setup</h2>
+<p>To run this laboratory, you need the <strong>Nix package manager</strong> with <strong>Flakes</strong> enabled.</p>
+<p>Unlike traditional package managers, Nix will <strong>not</strong> alter your global system files (<code>/usr/bin</code>, <code>/etc</code>). Everything Nix downloads or builds is stored safely inside a dedicated <code>/nix</code> directory, which can be cleanly removed at any time.</p>
+<h3 is-upgraded>1. Quick Install (Recommended: Linux, macOS, WSL2)</h3>
+<p>The fastest, most reliable way to install Nix with experimental features (Flakes &amp; new CLI) automatically enabled is via the Determinate Systems installer:</p>
+<pre><code language="language-bash" class="language-bash">curl --proto &#39;=https&#39; --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+</code></pre>
+<p><em>Follow the on-screen prompts and restart your terminal session once the script finishes.</em></p>
+<h3 is-upgraded>2. Upstream Install Alternative</h3>
+<p>If you prefer the standard upstream installer from <code>nixos.org</code>:</p>
+<pre><code language="language-bash" class="language-bash"># Run multi-user daemon installer
+sh &lt;(curl -L https://nixos.org/nix/install) --daemon
+</code></pre>
+<p><strong>Important:</strong> If using the upstream installer, you must explicitly enable Flakes by creating <code>~/.config/nix/nix.conf</code>:</p>
+<pre><code language="language-bash" class="language-bash">mkdir -p ~/.config/nix
+echo &#34;experimental-features = nix-command flakes&#34; &gt;&gt; ~/.config/nix/nix.conf
+</code></pre>
+<h3 is-upgraded>3. Verify Your Installation</h3>
+<p>Verify that your terminal recognizes Nix and that Flakes are operational:</p>
+<pre><code language="language-bash" class="language-bash">nix --version
+</code></pre>
+<p><em>(You should see </em></p>
+<p><em><code>nix (Nix) 2.x.x</code></em></p>
+<p><em> or later).</em></p>
+<p><strong>Peace of Mind:</strong> Should you ever wish to completely remove Nix after completing this course, simply run <code>/nix/nix-installer uninstall</code> (if using the quick installer) or delete <code>/nix</code> and your Nix configuration files.</p>
 <p>Let&#39;s dive in!</p>
 
 
@@ -66,34 +393,50 @@
       </google-codelab-step>
     
       <google-codelab-step label="Step 3 — The Diagnosis: Why Did It Break?" duration="15">
-        <p>Application-level package managers (like <code>pip</code>, <code>uv</code>, <code>poetry</code>, <code>npm</code>, or <code>cargo</code>) only manage their specific language ecosystems. They assume the underlying operating system provides the necessary libraries and compilers.</p>
+        <p>Application-level package managers (like <code>pip</code>, <code>uv</code>, <code>poetry</code>, <code>npm</code>, or <code>cargo</code>) only manage files within their own localized runtime sandboxes. They make a massive, unstated assumption: <strong>that the underlying host operating system already provides the required C compilers, dynamic linkers, and system headers.</strong></p>
 <h2 is-upgraded>The &#34;Jenga Tower&#34; Mental Model</h2>
-<p>When we use <code>sudo apt install</code> or <code>brew install</code>, we mutate the global state of our operating system. Every command changes the machine in ways that aren&#39;t tracked or easily reversible. Over time, machines diverge, creating configuration drift.</p>
-<p><em>(See our diagram: </em></p>
-<p><em><code>reproducibility_gap_v1.0.mmd</code></em></p>
-<p><em>)</em></p>
+<p>When setting up environments traditionally, developers rely on imperative commands:</p>
+<pre><code language="language-bash" class="language-bash">sudo apt-get update &amp;&amp; sudo apt-get install -y build-essential libsecp256k1-dev pkg-config
+</code></pre>
+<p>Every time a command with <code>sudo</code> is executed, it mutates the global state of the operating system:</p>
+<ol type="1">
+<li>Shared libraries are written directly into <code>/usr/lib</code> or <code>/usr/local/lib</code>.</li>
+<li>Header files overwrite <code>/usr/include</code>.</li>
+<li>Global symlinks shift unpredictably.</li>
+</ol>
+<p>Over months of development, your operating system turns into a <strong>&#34;Jenga Tower&#34;</strong>. Each project pulls or modifies system dependencies until a single package update causes the entire environment to collapse. Worse still, you cannot capture this state in your project&#39;s Git repository.</p>
+<p class="image-container"><img alt="The Jenga Tower Mental Model of Operating System Mutation" src="img/dbcfdb5e34c45413.jpeg"></p>
+<p><em>Figure 1: The Jenga Tower mental model illustrating how progressive imperative system modifications destabilize development environments.</em></p>
+<p><strong>Key Takeaway:</strong> Application package managers don&#39;t manage machines; they only manage files inside their language boundary. When C extensions are involved, global OS mutation creates configuration drift.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step 4 — The Reproducibility Gap" duration="10">
-        <p>This gap between &#34;code works&#34; and &#34;system works&#34; has real-world consequences, from security vulnerabilities to the deprecation of Cloud IDEs.</p>
+        <p>The difference between <em>&#34;the code compiles on my laptop&#34;</em> and <em>&#34;the system deploys deterministically on any machine&#34;</em> is what we call the <strong>Reproducibility Gap</strong>.</p>
+<p class="image-container"><img alt="The Reproducibility Gap: Application Layer vs Host System Layer" src="img/639b6c3a6d4b277.jpeg"></p>
+<p><em>Figure 2: The Reproducibility Gap between language-level package managers and host system dependencies.</em></p>
+<p>The table below contrasts the main paradigms used in industry today:</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Technology</p>
-</td><td colspan="1" rowspan="1"><p>Reproducibility Level</p>
-</td><td colspan="1" rowspan="1"><p>System Isolation</p>
+</td><td colspan="1" rowspan="1"><p>Scope of Isolation</p>
+</td><td colspan="1" rowspan="1"><p>Mechanism</p>
+</td><td colspan="1" rowspan="1"><p>The Reproducibility Weakness</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Virtualenv</p>
-</td><td colspan="1" rowspan="1"><p>Partial (Python only)</p>
-</td><td colspan="1" rowspan="1"><p>None</p>
+<tr><td colspan="1" rowspan="1"><p><strong>Virtualenv / uv</strong></p>
+</td><td colspan="1" rowspan="1"><p>Language runtime</p>
+</td><td colspan="1" rowspan="1"><p>Path redirection</p>
+</td><td colspan="1" rowspan="1"><p>Zero system isolation; fails when native C/C++ libraries are missing.</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Docker</p>
-</td><td colspan="1" rowspan="1"><p>High (Image state)</p>
-</td><td colspan="1" rowspan="1"><p>High (Container)</p>
+<tr><td colspan="1" rowspan="1"><p><strong>Docker</strong></p>
+</td><td colspan="1" rowspan="1"><p>User-space filesystem</p>
+</td><td colspan="1" rowspan="1"><p>Linux cgroups / namespaces</p>
+</td><td colspan="1" rowspan="1"><p>Imperative Dockerfiles (<code>apt-get update</code>) download different packages over time; non-deterministic image caching.</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Nix Flakes</p>
-</td><td colspan="1" rowspan="1"><p>Complete (Blueprint)</p>
-</td><td colspan="1" rowspan="1"><p>Perfect</p>
+<tr><td colspan="1" rowspan="1"><p><strong>Nix Flakes</strong></p>
+</td><td colspan="1" rowspan="1"><p>Complete dependency graph</p>
+</td><td colspan="1" rowspan="1"><p>Cryptographic hash in <code>/nix/store</code></p>
+</td><td colspan="1" rowspan="1"><p><strong>Absolute determinism</strong> via mathematical pure functions and locked dependency trees.</p>
 </td></tr>
 </table>
 
@@ -101,66 +444,198 @@
       </google-codelab-step>
     
       <google-codelab-step label="Step 5 — The Solution: What is Nix?" duration="10">
-        <p>Nix is a &#34;pure function&#34; package manager. It treats packages like functions: given the exact same inputs (source code, compiler version, dependencies), it always produces the exact same output.</p>
-<p>Key principles:</p>
+        <p>Nix is not just a package manager; it is a <strong>purely functional deployment model</strong>.</p>
+<p>In purely functional programming, a pure function <code>f(x)</code> guarantees:</p>
 <ul>
-<li>Deterministic builds</li>
-<li>Complete isolation</li>
-<li>Atomic upgrades and rollbacks</li>
+<li>Given the identical input <code>x</code>, it <em>always</em> returns the exact same output <code>y</code>.</li>
+<li>It produces zero side effects (it does not modify global state).</li>
 </ul>
+<p>Nix applies this mathematical principle to system software:</p>
+<ol type="1">
+<li><strong>Derivations as Pure Functions:</strong> Every package build is evaluated in an isolated sandbox with zero network access and no access to <code>/usr/lib</code> or <code>/bin</code>.</li>
+<li><strong>The Cryptographic Store:</strong> Build outputs are stored in read-only paths under <code>/nix/store/<hash>-<name>-<version>/</code>. The <code><hash></code> is computed from all build inputs: source code, compiler version, compilation flags, and exact dependency closures.</li>
+<li><strong>Coexistence Without Conflict:</strong> Multiple incompatible versions of the same library (e.g., <code>libsecp256k1-v0.1</code> and <code>libsecp256k1-v0.4</code>) can peacefully coexist on the same disk without collision.</li>
+</ol>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step 6 — Nix Flakes: The Blueprint File" duration="15">
-        <p>A <code>flake.nix</code> file is the blueprint of our environment. It explicitly declares inputs, outputs, and <code>devShells</code>. The associated <code>flake.lock</code> file pins the exact git hashes of every dependency, guaranteeing reproducibility.</p>
+        <p>In 2019, Nix introduced <strong>Flakes</strong>, bringing modern declarative lockfile semantics to system environments. A Flake standardizes two files:</p>
+<ol type="1">
+<li><strong><code>flake.nix</code></strong><strong> (The Blueprint):</strong> An explicit, declarative description of your project&#39;s inputs (source repositories, package sets) and outputs (packages, development shells, services).</li>
+<li><strong><code>flake.lock</code></strong><strong> (The Pin):</strong> A cryptographically pinned JSON manifest recording the exact Git commit hashes of every dependency.</li>
+</ol>
+<p>When a collaborator clones your repository and runs <code>nix develop</code>, Nix reads <code>flake.lock</code> and reconstructs the bit-for-bit identical environment—whether running on Ubuntu, Arch Linux, macOS, or a Chromebook thin client.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step 7 — The Fix: Solving the Build Failure with Nix" duration="20">
-        <p>Let&#39;s return to our failure from Step 2. We can fix it by wrapping the environment in a <code>flake.nix</code> that declares the system-level C library dependency.</p>
-<pre><code language="language-nix" class="language-nix">buildInputs = [
-  pkgs.secp256k1
-];
+        <p>Let us now resolve the compilation failure we witnessed in <strong>Step 2</strong>. Instead of polluting our operating system with <code>sudo apt install libsecp256k1-dev</code>, we declare our environment declaratively.</p>
+<h2 is-upgraded>Writing the Hermetic Shell</h2>
+<p>We create a <code>flake.nix</code> that injects <code>secp256k1</code> and <code>pkg-config</code> directly into our local development shell:</p>
+<pre><code language="language-nix" class="language-nix">{
+  description = &#34;Hermetic Python C-Extension Laboratory&#34;;
+
+  inputs = {
+    nixpkgs.url = &#34;github:NixOS/nixpkgs/nixos-unstable&#34;;
+  };
+
+  outputs = { self, nixpkgs }:
+    let
+      system = &#34;aarch64-linux&#34;; # or &#34;x86_64-linux&#34; / &#34;aarch64-darwin&#34;
+      pkgs = import nixpkgs { inherit system; };
+    in {
+      devShells.&#39;&#39;${system}.default = pkgs.mkShell {
+        # System-level dependencies made available to the compiler
+        nativeBuildInputs = [ pkgs.pkg-config ];
+        buildInputs = [ pkgs.secp256k1 ];
+
+        # Language runtime
+        packages = [ pkgs.uv (pkgs.python311.withPackages (ps: [])) ];
+
+        shellHook = &#39;&#39;
+          echo &#34;🛡️ Hermetic C-Extension Shell Initialized&#34;
+        &#39;&#39;;
+      };
+    };
+}
 </code></pre>
-<p>By running <code>nix develop</code>, Nix ensures <code>secp256k1</code> is available in our path <em>before</em> the shell starts. Our build now succeeds. Same code, different approach!</p>
+<h2 is-upgraded>Verifying the Fix</h2>
+<p>Now run the exact same command wrapped in our Nix environment:</p>
+<pre><code language="language-bash" class="language-bash">nix develop --command uv run --no-binary --with secp256k1 python -c &#34;import secp256k1; print(&#39;✅ Successfully imported secp256k1!&#39;)&#34;
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>🛡️ Hermetic C-Extension Shell Initialized
+✅ Successfully imported secp256k1!
+</code></pre>
+<p>Nix dynamically linked the C-header files and compiled the Python extension within a transient, hermetic environment—leaving the host machine completely untouched.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step 8 — Infrastructure as Code with Nix" duration="15">
-        <p>Because Nix can manage everything from a C compiler to an entire operating system, it is the ultimate Infrastructure as Code (IaC) tool. Compare this to tools like Ansible, which rely on the unstable state of the target machine.</p>
+        <p>Traditional Infrastructure as Code (IaC) tools like Ansible, Chef, or Puppet are <strong>imperative state machines</strong>: they execute scripts against an existing machine, attempting to push it toward a desired state. If a package was manually installed or removed previously, Ansible playbooks can fail unpredictably.</p>
+<p>Nix represents <strong>True Declarative IaC</strong>:</p>
+<ul>
+<li>You do not write steps to transition state (<em>&#34;install this, then delete that&#34;</em>).</li>
+<li>You declare the complete, finished state of the entire universe as a graph.</li>
+<li>The system derivation builds atomically: either the entire graph succeeds and symlinks switch instantaneously, or nothing changes.</li>
+</ul>
+<p class="image-container"><img alt="Imperative vs True Declarative Infrastructure as Code" src="img/cee5b39509d31979.jpeg"></p>
+<p><em>Figure 3: Imperative state modification vs pure atomic graph evaluation in Infrastructure as Code.</em></p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Step 9 — Practical: The Lightning Network Lab" duration="25">
-        <p>Using our <code>flake.nix</code> approach, we can orchestrate complex software like Bitcoin Core and Core Lightning. With a single command, you can spin up a reproducible, self-contained Lightning network node in regtest mode.</p>
+      <google-codelab-step label="Step 9 — Comprehension Checkpoint" duration="15">
+        <p>Before progressing to the advanced multi-daemon laboratory, test your understanding of the core concepts covered so far. Select your answers and click <strong>Check Answer</strong> for immediate validation:</p>
+<google-codelab-survey survey-id="nixb-reproducible-environments-1">
+<h4>Why did uv run --no-binary --with secp256k1 fail on our initial host run in Step 2?</h4>
+<paper-radio-group>
+<paper-radio-button>Python 3 was fundamentally incompatible with the secp256k1 package.</paper-radio-button>
+<paper-radio-button>Application package managers manage language packages, but cannot resolve host C libraries and headers unless explicitly supplied by the environment.</paper-radio-button>
+<paper-radio-button>The user did not run the command with sudo administrative privileges.</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+<google-codelab-survey survey-id="nixb-reproducible-environments-2">
+<h4>How does Nix prevent dependency collisions between two different versions of the same library?</h4>
+<paper-radio-group>
+<paper-radio-button>It runs every individual command and binary inside an isolated virtual machine.</paper-radio-button>
+<paper-radio-button>It stores each package in an isolated directory prefixed by a cryptographic hash of its complete input closure in /nix/store.</paper-radio-button>
+<paper-radio-button>It dynamically renames conflicting .so or .dylib files inside /usr/lib.</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+<google-codelab-survey survey-id="nixb-reproducible-environments-3">
+<h4>What fundamental reproducibility advantage distinguishes Nix Flakes from traditional Dockerfiles?</h4>
+<paper-radio-group>
+<paper-radio-button>Dockerfiles do not use container namespaces.</paper-radio-button>
+<paper-radio-button>Dockerfiles rely on imperative network downloads (e.g. apt-get update) that drift over time, whereas Flakes cryptographically lock the entire dependency graph in flake.lock.</paper-radio-button>
+<paper-radio-button>Nix only runs on Linux, whereas Docker is cross-platform.</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Step 10 — Security Through Reproducibility" duration="10">
-        <p>Reproducible builds ensure that the binary you are running exactly matches the source code. This eliminates an entire class of supply chain attacks, which is critical for financial software like Bitcoin.</p>
+      <google-codelab-step label="Step 10 — Practical Lab: Orchestrating Bitcoin Regtest &amp; LNbits" duration="25">
+        <p>Now that the conceptual foundations are verified, we transition into the advanced hands-on laboratory. Here, we demonstrate how Nix orchestrates a heterogeneous, high-stakes financial software stack: a private <strong>Bitcoin Regtest</strong> node, a <strong>Core Lightning (CLN)</strong> daemon, and <strong>LNbits</strong> with its native Scrum task extension.</p>
+<h2 is-upgraded>1. Cloning the Laboratory Repository</h2>
+<p>The full multi-daemon orchestrator and extension laboratory are packaged in the <code>nixB</code> repository. Open your terminal, clone the repository, and enter the root workspace:</p>
+<pre><code language="language-bash" class="language-bash">git clone https://github.com/andre-amorim/ou_tm470.git
+cd ou_tm470
+</code></pre>
+<p><strong>Repository Anatomy:</strong> The laboratory definitions and LNbits extensions are encapsulated within the <code>lab/</code> directory, while the root <code>flake.nix</code> unifies the entire multi-daemon lifecycle and data sandbox.</p>
+<h2 is-upgraded>2. Launching the Multi-Daemon Environment</h2>
+<p>From the root of the cloned repository, execute the unified bootstrap command:</p>
+<pre><code language="language-bash" class="language-bash">nix run .#bootstrap
+</code></pre>
+<p>Notice what Nix is doing:</p>
+<ul>
+<li>It compiles or fetches <code>bitcoind</code>, <code>lightningd</code>, <code>caddy</code>, and <code>uv</code> without requiring root permissions.</li>
+<li>It initializes a clean, ephemeral sandbox in <code>.data/</code>.</li>
+</ul>
+<h2 is-upgraded>3. Inspecting the Isolated Bitcoin Node</h2>
+<p>Open a second terminal, navigate to the <code>ou_tm470</code> repository directory, and query your local regression testing daemon:</p>
+<pre><code language="language-bash" class="language-bash">bitcoin-cli -datadir=.data/bitcoin getblockchaininfo
+</code></pre>
+<p>Notice that the <code>chain</code> is reported as <code>regtest</code>. To simulate immediate transaction confirmation, mine 101 initial blocks:</p>
+<pre><code language="language-bash" class="language-bash">bitcoin-cli -datadir=.data/bitcoin generatetoaddress 101 $(bitcoin-cli -datadir=.data/bitcoin getnewaddress)
+</code></pre>
+<h2 is-upgraded>4. Interacting with LNbits and the Scrum Extension</h2>
+<p>Open your web browser and navigate to:</p>
+<pre><code>http://localhost:5000
+</code></pre>
+<ol type="1">
+<li>Log in with the pre-configured administrator credentials: <ul>
+<li><strong>Username: </strong><code>admin</code></li>
+<li><strong>Password: </strong><code>TM470NixB</code></li>
+</ul>
+</li>
+<li>Create or open your default wallet.</li>
+<li>Access the pre-activated <strong>Scrum</strong> board extension directly at: <pre><code>http://localhost:5000/scrum/
+</code></pre>
+</li>
+<li>Notice how task completion is programmatically tied to instant, off-chain Lightning satoshi settlements.</li>
+</ol>
+<p><strong>Tip:</strong> If port 5000 or 8080 is already occupied on your system, you can supply custom ports via environment variables: <code>PORT=5050 nix run .#bootstrap</code>.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Step 11 — The Complete Workflow" duration="15">
-        <p>Combining Git and Nix Flakes gives us a complete &#34;time-machine&#34;. You can check out a commit from 3 years ago, run <code>nix develop</code>, and get the exact environment from that day. We also manage this project using ScrumMD!</p>
+      <google-codelab-step label="Step 11 — Security Through Reproducibility" duration="10">
+        <p>Why is software reproducibility critical for mission-critical and financial software?</p>
+<ol type="1">
+<li><strong>Supply Chain Defense:</strong> If developers cannot deterministically rebuild a binary from source code, malicious backdoors (such as the famous XZ Utils backdoor CVE-2024-3094) can be secretly injected during distribution without detection.</li>
+<li><strong>Auditability &amp; Attestation:</strong> Independent reviewers across the world can compile the exact same Git commit and verify that their SHA-256 output hashes match bit-for-bit.</li>
+<li><strong>Eliminating &#34;Works On My Machine&#34;:</strong> Eliminates subtle bugs caused by differing glibc versions, compiler optimization flags, or unpinned transitive libraries.</li>
+</ol>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Step 12 — Critical Reflection &amp; Portfolio" duration="30">
-        <p>Take a moment to reflect on the difference between imperative dependency management and declarative blueprints. Please prepare your portfolio submission detailing your findings.</p>
+      <google-codelab-step label="Step 12 — Critical Reflection &amp; Learning Log" duration="20">
+        <p>As you conclude this laboratory, reflect on the software engineering implications:</p>
+<ol type="1">
+<li><strong>Trade-offs:</strong> Nix provides mathematically rigorous reproducibility, but what are its costs? Consider the initial learning curve, disk storage overhead of <code>/nix/store</code>, and adapting non-standard build systems.</li>
+<li><strong>Solo vs. Team Development:</strong> How does declarative infrastructure streamline onboarding for open-source contributors and distributed teams?</li>
+<li><strong>Action Item:</strong> Capture your reflections, screenshots of your passing build, and your Bitcoin Regtest block height in your project learning journal.</li>
+</ol>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step 13 — Congratulations!" duration="2">
-        <p>You&#39;ve completed the nixB Codelab! You&#39;ve learned why reproducibility matters, how Nix solves the problem, and how to apply it. Next up: Explore NixOS or Home Manager!</p>
+        <p>Congratulations! You have completed the <strong>nixB Didactic Laboratory for Software Reproducibility</strong>.</p>
+<h2 is-upgraded>What you&#39;ve accomplished:</h2>
+<ul>
+<li>Diagnosed the root causes of configuration drift and the Reproducibility Gap.</li>
+<li>Contrasted imperative FHS mutations with declarative pure functions.</li>
+<li>Authored a hermetic <code>flake.nix</code> development shell for native C-extensions.</li>
+<li>Orchestrated a local multi-daemon Bitcoin Regtest &amp; LNbits environment.</li>
+</ul>
+<p>To explore further, check out the project monorepo at <a href="https://github.com/andre-amorim/ou_tm470" target="_blank">GitHub: andre-amorim/ou_tm470</a>.</p>
 
 
       </google-codelab-step>
@@ -173,5 +648,188 @@
   <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
 
+  <script>
+    
+    (function() {
+      function enhanceSnippets() {
+        var pres = document.querySelectorAll('pre');
+        pres.forEach(function(pre) {
+          if (pre.closest('.snippet-wrapper')) return;
+
+          var wrapper = document.createElement('div');
+          wrapper.className = 'snippet-wrapper';
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+
+          var btnContainer = document.createElement('div');
+          btnContainer.className = 'devsite-code-buttons-container';
+
+          var btn = document.createElement('button');
+          btn.className = 'devsite-code-button';
+          btn.type = 'button';
+          btn.setAttribute('data-tooltip', 'Copy code sample');
+          btn.setAttribute('aria-label', 'Copy code sample');
+          btn.innerHTML = '<span class="material-icons">content_copy</span>';
+
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var code = pre.querySelector('code') || pre;
+            var codeText = code.innerText || code.textContent || '';
+            navigator.clipboard.writeText(codeText.trim()).then(function() {
+              btn.innerHTML = '<span class="material-icons">check</span>';
+              btn.classList.add('copied');
+              btn.setAttribute('data-tooltip', 'Copied!');
+              setTimeout(function() {
+                btn.innerHTML = '<span class="material-icons">content_copy</span>';
+                btn.classList.remove('copied');
+                btn.setAttribute('data-tooltip', 'Copy code sample');
+              }, 2000);
+            }).catch(function(err) {
+              console.error('Copy failed: ', err);
+            });
+          });
+
+          btnContainer.appendChild(btn);
+          wrapper.appendChild(btnContainer);
+        });
+      }
+
+      var quizFeedbacks = {
+        "uv run --no-binary --with secp256k1": {
+          correctPattern: /Application package managers/i,
+          successMsg: "Correct! Language managers like pip, uv, or npm manage Python packages, but cannot resolve host C-headers (secp256k1.h) or compiler tools. Nix bridges this gap by declaring system libraries in the shell derivation.",
+          failMsg: "Not quite. Pip/uv successfully download the Python package, but the C-extension compilation crashes because the OS lacks secp256k1.h header files."
+        },
+        "prevent dependency collisions": {
+          correctPattern: /stores each package in an isolated directory prefixed by a cryptographic hash/i,
+          successMsg: "Correct! Store paths incorporate the cryptographic hash of all build inputs (/nix/store/<hash>-...), allowing multiple incompatible versions to coexist on the same filesystem without collision.",
+          failMsg: "Not quite. Nix avoids the overhead of virtual machines and avoids mutating global /usr/lib. It achieves conflict-free isolation via unique cryptographic store paths."
+        },
+        "distinguishes Nix Flakes": {
+          correctPattern: /rely on imperative network downloads/i,
+          successMsg: "Correct! Running `docker build` on an older Dockerfile often breaks or pulls newer packages due to imperative apt/apk commands. A Nix Flake with `flake.lock` reconstructs the exact identical graph.",
+          failMsg: "Not quite. While Docker provides container runtime isolation, its build instructions are imperative mutations against external servers, causing temporal drift."
+        }
+      };
+
+      function enhanceSurveys() {
+        var surveys = document.querySelectorAll('google-codelab-survey');
+        surveys.forEach(function(survey) {
+          if (survey.dataset.quizEnhanced) return;
+
+          var qWrappers = survey.querySelectorAll('.survey-question-wrapper');
+          if (!qWrappers.length) return; 
+
+          survey.dataset.quizEnhanced = "true";
+
+          qWrappers.forEach(function(qw) {
+            var h4 = qw.querySelector('h4');
+            var qText = h4 ? h4.textContent : "";
+
+            var matchedCfg = null;
+            Object.keys(quizFeedbacks).forEach(function(key) {
+              if (qText.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+                matchedCfg = quizFeedbacks[key];
+              }
+            });
+            if (!matchedCfg) return;
+
+            var controls = document.createElement('div');
+            controls.className = 'nixb-quiz-controls';
+
+            var btnRow = document.createElement('div');
+            btnRow.className = 'nixb-quiz-buttons-row';
+
+            var checkBtn = document.createElement('button');
+            checkBtn.className = 'nixb-check-btn';
+            checkBtn.type = 'button';
+            checkBtn.textContent = 'Check Answer';
+
+            var resetBtn = document.createElement('button');
+            resetBtn.className = 'nixb-reset-btn';
+            resetBtn.type = 'button';
+            resetBtn.innerHTML = '<span class="material-icons" style="font-size:16px;">refresh</span> Reset';
+
+            var feedbackBox = document.createElement('div');
+            feedbackBox.className = 'nixb-quiz-feedback';
+
+            checkBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              var checkedRadio = qw.querySelector('input[type="radio"]:checked');
+              if (!checkedRadio) {
+                feedbackBox.className = 'nixb-quiz-feedback incorrect';
+                feedbackBox.innerHTML = '⚠️ <strong>Please select an option before checking.</strong>';
+                return;
+              }
+
+              var label = checkedRadio.closest('.survey-option-wrapper');
+              var answerText = label ? label.textContent : "";
+
+              if (matchedCfg.correctPattern.test(answerText)) {
+                feedbackBox.className = 'nixb-quiz-feedback correct';
+                feedbackBox.innerHTML = '✅ <strong>Pass!</strong> ' + matchedCfg.successMsg;
+              } else {
+                feedbackBox.className = 'nixb-quiz-feedback incorrect';
+                feedbackBox.innerHTML = '❌ <strong>Incorrect.</strong> ' + matchedCfg.failMsg;
+              }
+            });
+
+            resetBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              
+              var radios = qw.querySelectorAll('input[type="radio"]');
+              radios.forEach(function(radio) {
+                radio.checked = false;
+              });
+              
+              var optionWrappers = qw.querySelectorAll('.survey-option-wrapper');
+              optionWrappers.forEach(function(opt) {
+                opt.classList.remove('selected');
+              });
+              
+              feedbackBox.className = 'nixb-quiz-feedback';
+              feedbackBox.innerHTML = '';
+            });
+
+            btnRow.appendChild(checkBtn);
+            btnRow.appendChild(resetBtn);
+            controls.appendChild(btnRow);
+            controls.appendChild(feedbackBox);
+            qw.appendChild(controls);
+          });
+        });
+      }
+
+      function runEnhancements() {
+        enhanceSnippets();
+        enhanceSurveys();
+      }
+
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runEnhancements);
+      } else {
+        runEnhancements();
+      }
+
+      
+      var checkInterval = setInterval(function() {
+        runEnhancements();
+      }, 300);
+
+      
+      setTimeout(function() {
+        clearInterval(checkInterval);
+      }, 10000);
+
+      var observer = new MutationObserver(function() {
+        runEnhancements();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    })();
+  </script>
 </body>
 </html>
